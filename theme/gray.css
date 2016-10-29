@@ -1,0 +1,78 @@
+body {
+	background: #505050;
+}
+
+body, button {
+	color: #FFF;
+}
+
+/* Wrapper ... */
+
+#wrapper {
+	background: #808080;
+}
+
+/* Button ... */
+
+button {
+	border: 0px;
+	background: #404040;
+	color: #FFF;
+}
+button:hover {
+	border: 2px solid black;
+	border-left: 2px solid #DDD;
+	border-top: 2px solid #DDD;
+}
+button:active{
+	background: #202020;
+	border: 2px solid black;
+	border-right: 2px solid #DDD;
+	border-bottom: 2px solid #DDD;
+	transform: translate(1px, 1px);
+}
+
+/* topbar ... */
+
+#topbar,
+#topbar-miniball {
+	background: #606060;
+}
+#topbar.on {
+	background: #404040;
+}
+
+#topbar span,
+#topbar span a {
+	color: rgb(180,180,180);
+	opacity: 1;
+}
+
+/* config ...*/
+
+#config {
+	background: #606060;
+}
+
+/* game & card ... */
+
+#point-text {
+	color: #EEEEEE;
+}
+
+#game button {
+}
+#game button:active {
+}
+
+.card {
+	background: #CCC;
+	color: #000;
+	border: 1px solid black;
+}
+
+/* MsgBox ... */
+
+#MsgBox {
+	background: #606060;
+}

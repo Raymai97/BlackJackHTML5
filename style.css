@@ -1,0 +1,438 @@
+* { box-sizing: border-box; }
+
+body {
+	position: absolute;
+	top: 0; left: 0;
+	bottom: 0; right: 0;
+	margin: auto;
+	overflow-x: hidden;	
+	-webkit-user-select: none;
+	-moz-user-select: none;
+	-ms-user-select: none;
+}
+
+body, button {
+	font-family: "Tahoma", sans-serif;
+	font-size: 18px;
+}
+
+button {
+	cursor: pointer;
+}
+
+/* Wrapper ... */
+
+#wrapper {
+	position: absolute;
+	top: 0; left: 0; right: 0;
+	margin: auto;
+
+	width: 100%;
+	min-height: 100%;
+}
+
+@media only screen
+and (min-width: 1024px) {
+	#wrapper {
+		width: 1024px;
+	}
+	/* becuz max-width not working properly on IE11 */
+}
+
+/* ... Wrapper */
+/* topbar ... */
+
+#topbar {
+	position: relative;
+	margin: 0;
+	padding: 0px 30px;
+	
+	height: 50px;
+	line-height: 50px;
+	
+	font-size: 24px;
+	white-space: nowrap;
+	z-index: 99;
+}
+
+#topbar:hover {
+	cursor: pointer;
+}
+
+#topbar span,
+#topbar span a {
+	font-size: 16px;
+	font-style: oblique;
+}
+
+#topbar-miniball {
+	display: none;
+	position: absolute;
+	top: 0; left: 0;
+	width: 50px;
+	height: 50px;
+	line-height: 50px;
+	
+	text-align: center;
+	cursor: pointer;
+	z-index: 99;
+}
+
+@media only screen
+and (max-width: 416px) {
+	#topbar span,
+	#topbar span a {
+		display: none;
+	}
+	
+}
+
+/* ... topbar */
+/* config ...*/
+#config {
+	position: fixed;
+	left: 0; right: 0; top: 0;
+	margin: auto;
+	padding-top: 60px;
+	width: 1024px;
+	height: 100%;
+	transition: all 0.3s ease-out;
+	transition-property: opacity, transform;
+	transform-origin: top;
+	z-index: 98;
+	
+	opacity: 0;
+	transform: scale(1, 0.2);
+}
+#config.on {	
+	opacity: 1;
+	transform: scale(1, 1);
+}
+
+#config div {
+	padding: 10px 30px;
+	text-align: center;
+}
+
+.theme-preview {
+	display: inline-block;
+	border: 1px solid white;
+	width: 64px;
+	height: 48px;
+}
+.theme-preview#default {
+	background: #080;
+}
+.theme-preview#gray {
+	background: #888;
+}
+
+@media only screen
+and (max-width: 1024px) {
+	#config {
+		width: 100%;
+	}
+}
+
+/* ... config */
+/* MsgBox ... */
+
+#MsgBox { /* dock to Bottom */
+	position: fixed;
+	left: 0; right: 0; bottom: 0; 
+	margin: auto;	
+	width: 100%;
+	height: 30%;
+	max-width: 1024px;
+	transition: all 0.3s ease-out;
+	transition-property: opacity, transform, visibility;
+	z-index: 90;
+	
+	opacity: 0;
+	transform: translate(0px, 50px);
+	visibility: hidden;
+}
+#MsgBox.on {
+	opacity: 1;
+	transform: translate(0px, 0px);
+	visibility: visible;
+}
+
+#MsgBox_textArea { /* dock to Middle-left */
+	display: table;
+	position: absolute;
+	top: 0; left: 10%;
+	margin: auto;
+	
+	width: 50%;
+	height: 100%;
+	
+	-webkit-user-select: text;
+	-moz-user-select: text;
+	-ms-user-select: text;
+}
+
+#MsgBox_text {
+	display: table-cell;
+	vertical-align: middle;
+	text-align: center;
+}
+
+#MsgBox_OK { /* dock to Middle-right */
+	position: absolute;
+	top: 0; bottom: 0; right: 10%;
+	margin: auto;
+	
+	width: 25%;
+	height: 30%;
+}
+
+/*   ~ Portrait ~ */
+
+@media only screen
+and (orientation: portrait)
+and (max-aspect-ratio: 16/10) {
+	#MsgBox {
+		height: 20%;
+	}
+}
+
+/* ... MsgBox */
+/* game & card ... */
+
+#game-wrapper {
+	position: relative;
+	width: 80%;
+	margin-top: 20px;
+	margin-left: 10%;
+	margin-right: 10%;
+	padding: 24.1%; /* hack for aspect ratio
+		= (% of width for height) / 2 * (% width)
+		= (350/580) / 2 * (0.8)
+	*/
+}
+
+#game {
+	position: absolute;
+	top: 0; left: 0;
+	bottom: 0; right: 0;
+	margin: auto;
+}
+
+#point-text {
+	text-align: right;
+	padding: 3px 6px;
+}
+
+#game-buttons {
+	position: absolute;
+	bottom: 0px;
+	left: 0; right: 0;
+	margin: auto;
+	
+	height: 25%;
+	
+	text-align: center;
+}
+
+#game button {
+	min-width: 17.24%;
+	height: 44%;
+	margin: 6px;
+}
+
+.card {
+	position: absolute;
+	padding: 1px 3px;
+	
+	width: 15%;
+	height: 30%;
+	
+	visibility: hidden;
+}
+
+.card div {
+	position: absolute;
+	padding: 1px 3px;
+	bottom: 0; right: 0;
+	margin: auto;
+}
+
+#player-cards .card {
+	top: 25%;
+	margin-left: 10%;
+}
+
+#player-card1 {
+	left: 3%;
+}
+#player-card2 {
+	left: 7.5%;
+}
+#player-card3 {
+	left: 12%;
+}
+#player-card4 {
+	left: 16.5%;
+}
+#player-card5 {
+	left: 21%;
+}
+
+#com-cards .card {
+	top: 30%;
+	margin-right: 10%;
+}
+#com-card1 {
+	right: 3%;
+}
+#com-card2 {
+	right: 7.5%;
+}
+#com-card3 {
+	right: 12%;
+}
+#com-card4 {
+	right: 16.5%;
+}
+#com-card5 {
+	right: 21%;
+}
+
+#portrait-test {
+	visibility: hidden;
+}
+
+/*   ~ Landscape ~ from tallest to shortest */
+
+@media only screen
+and (orientation: landscape)
+and (max-width: 725px){
+	#game-wrapper {
+		width: 580px;
+		height: 350px;
+		margin: 20px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+}
+
+@media only screen
+and (orientation: landscape)
+and (min-aspect-ratio: 16/10)
+and (max-height: 575px) {
+	#topbar:not(.on) {
+		display: none;
+	}
+	#topbar.on {
+		position: fixed;
+		width: 1024px;
+		z-index: 100;
+	}
+	#topbar-miniball:not(.on) {
+		display: block;
+	}
+}
+
+@media only screen
+and (orientation: landscape)
+and (min-aspect-ratio: 16/10)
+and (max-height: 530px) {
+	#game-wrapper {
+		margin-top: 0;
+	}
+}
+
+@media only screen
+and (orientation: landscape)
+and (min-aspect-ratio: 16/10)
+and (max-height: 498px) {
+	#game-wrapper {
+		position: absolute;
+		left: 0; right: 0;
+		margin: auto;
+		padding: 0;
+		height: 100%;
+		width: 163vh;
+	}
+}
+
+/*   ~ Portrait ~ */
+
+@media only screen
+and (orientation: portrait)
+and (max-aspect-ratio: 16/10) {
+	
+	#game-wrapper {
+		margin-top: 0;
+		position: absolute;
+		left: 0; right: 0;
+		margin: auto;
+		padding: 0;
+		width: 100%;
+		height: 120vw;
+	}
+	
+	#game-buttons {
+		height: 18%;
+	}
+	#game button {
+		width: 28%;
+		margin: 3px;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+		overflow: hidden;
+	}
+	
+	.card {
+		width: 23%;
+		height: 25%;
+	}	
+	
+	#player-cards .card {
+		top: 18%;
+		margin-left: 10%;
+	}
+
+	#player-card1 {
+		left: 3%;
+	}
+	#player-card2 {
+		left: 10%;
+	}
+	#player-card3 {
+		left: 17%;
+	}
+	#player-card4 {
+		left: 24%;
+	}
+	#player-card5 {
+		left: 31%;
+	}
+
+	#com-cards .card {
+		top: 50%;
+		margin-right: 10%;
+	}
+	#com-card1 {
+		right: 3%;
+	}
+	#com-card2 {
+		right: 10%;
+	}
+	#com-card3 {
+		right: 17%;
+	}
+	#com-card4 {
+		right: 24%;
+	}
+	#com-card5 {
+		right: 31%;
+	}
+	
+	#portrait-test {
+		visibility: visible;
+	}
+}
+
+/* ... game & card */

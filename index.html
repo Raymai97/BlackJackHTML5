@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>BlackJack! in HTML5</title>
+		<link rel="stylesheet" type="text/css" href="./style.css">
+		<link rel="stylesheet" type="text/css" id="theme_css" href="./theme/default.css">
+		<script src="./game.js"></script>
+		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=0.9">
+		<meta name="mobile-web-app-capable" content="yes">
+		<meta charset="UTF-8">
+		<meta name="keywords" content="BlackJack,HTML5,MaiSoft">
+		<meta name="author" content="Raymai97">
+		<meta name="description" content="A BlackJack game developed using HTML5, CSS3 and JS.">
+	</head>
+	<body onload="onPageLoad()" onresize="updateFontSize()">
+		<div id="wrapper">
+			<div id="topbar" onclick="toggleConfig()">
+				BlackJack! + HTML5
+				<span>by <a href="https://github.com/Raymai97">raymai97</a></span>
+			</div>
+			<div id="topbar-miniball" onclick="toggleConfig()">...</div>
+			<div id="config">
+				<div id="config-language">
+					<input type="radio" name="language" id="English" checked="yes"/>
+					<label for="English">English</label>
+					<input type="radio" name="language" id="简体中文"/>
+					<label for="简体中文">简体中文</label>
+					<input type="radio" name="language" id="日本語"/>
+					<label for="日本語">日本語</label>
+				</div>
+				<div id="config-theme">
+					<input type="radio" name="theme" id="default" checked="yes"/>
+					<label for="default">
+						<div class="theme-preview" id="default"></div>
+					</label>
+					<input type="radio" name="theme" id="gray"/>
+					<label for="gray">
+						<div class="theme-preview" id="gray"></div>
+					</label>
+				</div>
+			</div>
+			<div id="game-wrapper">
+				<div id="game">
+					<div id="portrait-test"></div>
+					<div id="point-text"></div>
+					<div id="player-cards">
+						<div class="card" id="player-card1"></div>
+						<div class="card" id="player-card2"></div>
+						<div class="card" id="player-card3"></div>
+						<div class="card" id="player-card4"></div>
+						<div class="card" id="player-card5"></div>
+					</div>
+					<div id="com-cards">
+						<div class="card" id="com-card1"></div>
+						<div class="card" id="com-card2"></div>
+						<div class="card" id="com-card3"></div>
+						<div class="card" id="com-card4"></div>
+						<div class="card" id="com-card5"></div>
+					</div>
+					<div id="game-buttons">
+						<button id="btnTakeCard" onclick="onBtnTakeCard()"></button>
+						<button id="btnDeal" onclick="onBtnDeal()"></button>
+						<button id="btnReset" onclick="onBtnReset()"></button>
+					</div>
+				</div>
+			</div>
+			<div id="MsgBox">
+				<div id="MsgBox_textArea">
+					<span id="MsgBox_text"></span>
+				</div>
+				<button id="MsgBox_OK" onclick="onMsgBoxOK();">OK</button>
+			</div>
+		</div>
+	</body>
+</html>
